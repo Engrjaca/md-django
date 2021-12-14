@@ -1,0 +1,39 @@
+<div class="row">
+    {% for i in BNL_Daily%}
+	<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4 my-5">
+		<div class="card" data-animation="true">
+			<div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+				<a class="d-block blur-shadow-image">
+				<img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+				</a>
+				<div class="colored-shadow" style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);"></div>
+			</div>
+			<div class="card-body text-center">
+				<div class="d-flex mt-n6 mx-auto">
+					<a class="btn btn-link text-primary ms-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Refresh">
+					<i class="material-icons text-lg">refresh</i>
+					</a>
+					<button class="btn btn-link text-info me-auto border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit">
+					    <i class="material-icons text-lg">edit</i>
+					</button>
+				</div>
+				<h5 class="font-weight-normal mt-3">
+					<a href="javascript:;">{{i.data.task_id.report}}</a>
+				</h5>
+				<p class="mb-0 h3 {%if i.data.status == 'Success'%}text-success{%else%}text-danger{%endif%}">
+                    {{i.data.status}}
+                </p>
+                <p class="mb-0">
+                    {{i.data.remarks}}
+				</p>
+			</div>
+			<hr class="dark horizontal my-0">
+			<div class="card-footer d-flex">
+				<p class="font-weight-normal my-auto"> Last Run </p>
+				<i class="material-icons position-relative ms-auto text-lg me-1 my-auto">schedule</i>
+				<p class="text-sm my-auto"> {{i.data.end_time}}</p>
+			</div>
+		</div>
+    </div>
+    {%endfor%}
+</div>
